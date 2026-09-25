@@ -19,7 +19,7 @@ public class slipgaji {
 
     public slipgaji(karyawan karyawan, int jumlahHariKerja, int jamLembur, double gajiPokok, double upahLembur, double potonganPajakBpjs, double totalgajiBersih)
     {
-       this.nomorStruk = String.format("STRUK-%03d", counterStruk++);
+        this.nomorStruk = String.format("STRUK-%03d", counterStruk++);
         this.karyawan = karyawan;
         this.jumlahHariKerja = jumlahHariKerja;
         this.jamLembur = jamLembur;
