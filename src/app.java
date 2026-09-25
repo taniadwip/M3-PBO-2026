@@ -1,41 +1,20 @@
-
-
 import id.ac.polban.model.karyawan;
 import id.ac.polban.model.slipgaji;
 import id.ac.polban.service.hitunggaji;
-import java.util.Scanner;
 
 public class app {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // 1. Inisialisasi Service dan Data Karyawan
         hitunggaji service = new hitunggaji();
+        karyawan emp1 = new karyawan("EMP-101", "Budi Santoso", "Teknik & IT");
+        karyawan emp2 = new karyawan("EMP-102", "Siti Aminah", "Keuangan");
 
-        System.out.println("========================================");
-        System.out.println("       INPUT DATA PENGGAJIAN KARYAWAN   ");
-        System.out.println("========================================");
+        // 2. Pemrosesan Gaji (Hari kerja normal @ 350.000, lembur per jam 50%, potongan 2%)
+        slipgaji slip1 = service.buatSlipGaji(emp1, 20, 10);
+        slipgaji slip2 = service.buatSlipGaji(emp2, 22, 0);
 
-        // 1. Input Data Entitas Karyawan
-        System.out.print("Masukkan ID Karyawan   : ");
-        String id = scanner.nextLine();
-        System.out.print("Masukkan Nama Karyawan : ");
-        String nama = scanner.nextLine();
-        System.out.print("Masukkan Departemen    : ");
-        String dept = scanner.nextLine();
-
-        karyawan karyawan = new karyawan(id, nama, dept);
-
-        // 2. Input Variabel Operasional Kerja
-        System.out.print("Jumlah Hari Kerja (hari): ");
-        int hariKerja = scanner.nextInt();
-        System.out.print("Jumlah Jam Lembur (jam) : ");
-        int jamLembur = scanner.nextInt();
-
-        // 3. Eksekusi Relasi Dependency & Aggregation
-        slipgaji slip = service.buatSlipGaji(karyawan, hariKerja, jamLembur);
-
-        // 4. Tampilkan Slip Hasil Hitung
-        service.cetakSlipKeKonsol(slip);
-
-        scanner.close();
+        // 3. Cetak Hasil Struk
+        service.cetakSlipKeKonsol(slip1);
+        service.cetakSlipKeKonsol(slip2);
     }
 }
