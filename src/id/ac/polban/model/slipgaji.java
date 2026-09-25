@@ -17,7 +17,7 @@ public class slipgaji {
     private double potonganPajakBpjs;
     private double totalGajiBersih;
 
-    public slipgaji(karyawan karyawan, int jumlahHariKerja, int jamLembur, double gajiPokok, double upahLembur, double potonganPajakBpjs, double totalgajiBersih)
+    public slipgaji(karyawan karyawan, int jumlahHariKerja, int jamLembur, double gajiPokok, double upahLembur, double potonganPajakBpjs, double totalGajiBersih)
     {
         this.nomorStruk = String.format("STRUK-%03d", counterStruk++);
         this.karyawan = karyawan;
